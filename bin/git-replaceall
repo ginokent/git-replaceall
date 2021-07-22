@@ -42,8 +42,14 @@ __replaceall () { (
   # check
   if [[ $# -lt 2 ]] || [[ " $* " =~ .*\ (-h|--help)\ .* ]]; then
     cat 1>&2 <<__USAGE__
-Usage: 
-    $ git-replaceall <before-regexp> <after-regexp>
+
+Usage:  git replaceall <before-regexp> <after-string>
+
+git-replaceall - replace all strings matched regex
+
+Options:
+      -h, --help           Display help
+
 __USAGE__
     exit 1
   fi

@@ -4,7 +4,7 @@ set -E -e -o pipefail -u
 #
 # MIT License
 #
-# Copyright (c) 2021 djeeno
+# Copyright (c) 2021 newtstat
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -30,12 +30,12 @@ set -E -e -o pipefail -u
 #
 # ### for curl
 # ```
-# $ sudo bash -cx "curl -LR https://github.com/djeeno/git-replaceall/releases/latest/download/git-replaceall -o /usr/local/bin/git-replaceall && chmod -v +x /usr/local/bin/git-replaceall"
+# $ sudo bash -cx "curl -LR https://github.com/newtstat/git-replaceall/releases/latest/download/git-replaceall -o /usr/local/bin/git-replaceall && chmod -v +x /usr/local/bin/git-replaceall"
 # ```
 #
 # ### for wget
 # ```
-# $ sudo bash -cx "wget -c https://github.com/djeeno/git-replaceall/releases/latest/download/git-replaceall -O /usr/local/bin/git-replaceall && chmod -v +x /usr/local/bin/git-replaceall"
+# $ sudo bash -cx "wget -c https://github.com/newtstat/git-replaceall/releases/latest/download/git-replaceall -O /usr/local/bin/git-replaceall && chmod -v +x /usr/local/bin/git-replaceall"
 # ```
 
 __replaceall () { (

@@ -57,7 +57,7 @@ __USAGE__
   __before="${1:?}"
   __after="${2:?}"
   git grep -l -E "${__before:?}" |
-    xargs -I{} -t perl -pe "s/${__before/\//\\\/}/${__after/\//\\\/}/g" -i {}
+    xargs -I{} -t perl -pe "s/${__before//\//\\\/}/${__after//\//\\\/}/g" -i {}
 )}
 
 __replaceall "$@"

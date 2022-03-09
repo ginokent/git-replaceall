@@ -38,7 +38,7 @@ set -E -e -o pipefail -u
 # $ sudo bash -cx "wget -c https://github.com/newtstat/git-replaceall/releases/latest/download/git-replaceall -O /usr/local/bin/git-replaceall && chmod -v +x /usr/local/bin/git-replaceall"
 # ```
 
-__replaceall () { (
+__git_replaceall () { (
   # check
   if [[ $# -lt 2 ]] || [[ " $* " =~ .*\ (-h|--help)\ .* ]]; then
     cat 1>&2 <<__USAGE__
@@ -54,10 +54,10 @@ __USAGE__
     exit 1
   fi
   # main
-  __before="${1:?}"
-  __after="${2:?}"
-  git grep -l -E "${__before:?}" |
-    xargs -I{} -t perl -pe "s/${__before//\//\\\/}/${__after//\//\\\/}/g" -i {}
+  before=$(echo "${1:-}" | sed "s@/@\\\/@g; s/@/\\\@/g")
+  after=$(echo "${2:-}" | sed "s@/@\\\/@g; s/@/\\\@/g")
+  git grep -l -E "${1:-}" |
+    xargs -I{} -t perl -pe "s/${before:-}/${after:-}/g" -i {}
 )}
 
-__replaceall "$@"
+__git_replaceall "$@"
